@@ -60,8 +60,6 @@ function Login () {
 
       putUserData(data)
 
-      // console.log(userData)
-
       if (status === 200 || status === 201) {
         toast.success('Seja bem vindo')
       } else if (status === 400 || status === 401) {

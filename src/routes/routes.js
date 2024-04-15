@@ -1,20 +1,23 @@
 import React from 'react'
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Login from '../containers/login'
 import Register from '../containers/Register'
-import PrivateRouteHome from './private-routes'
+import Home from '../containers/Home'
+
+import PrivateRoute from './privateRoutes'
 
 function Routess () {
   return (
     <Router>
-      <Routes>
-        <Route path='/login' Component={Login} />
-        <Route path='/cadastro' Component={Register} />
+      <Switch>
+        <Route path='/login' component={Login} />
+        <Route path='/cadastro' component={Register} />
 
-        <Route path='/' Component={PrivateRouteHome}/>
-      </Routes>
+        <PrivateRoute path='/' exact component={Home} />
+
+      </Switch>
     </Router>
   )
 }

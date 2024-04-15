@@ -1,13 +1,19 @@
 import React from 'react'
 
-import ImgHome from '../../assets/imgHomeBacground.jpeg'
+import CategoryCarrosel from '../../components/CategoryCarrosel'
 
-import { Conteiner } from './styled'
+import ImgHome from '../../assets/burger (1) 1.svg'
+
+import {
+  Conteiner,
+  HomeImg
+} from './styled'
 
 function Home () {
   return (
         <Conteiner>
-            <img src={ImgHome}/>
+            <HomeImg src={ImgHome} alt='backgroudHome'/>
+            <CategoryCarrosel/>
         </Conteiner>
   )
 }
