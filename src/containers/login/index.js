@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import { useUser } from '../../hooks/UserContext'
 
@@ -29,6 +29,7 @@ import {
 import Button from '../../components/Button'
 
 function Login () {
+  const history = useHistory()
   const { putUserData } = useUser()
 
   const schema = Yup.object().shape({
@@ -70,6 +71,10 @@ function Login () {
     } catch (err) {
       toast.error('Falha no sistema! Faça login novamente')
     }
+
+    setTimeout(() => {
+      history.push('/')
+    }, 1000)
   }
 
   return (
