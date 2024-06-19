@@ -14,9 +14,11 @@ function CardProducts ({ product }) {
   return (
     <Conteiner>
         <Image src={product.url} alt='imagem do produto' />
+        <div>
         <ProductName>{product.name}</ProductName>
-        <ProductPrice>{product.price}</ProductPrice>
+        <ProductPrice>{product.formatedPrice}</ProductPrice>
         <Button>Adicionar</Button>
+        </div>
     </Conteiner>
 
   )
