@@ -1,7 +1,6 @@
 import React from 'react'
 
-import CategoryCarrosel from '../../components/CategoryCarrosel'
-import OfferCarrosel from '../../components/OfferCarrosel'
+import { CategoryCarrosel, OfferCarrosel } from '../../components'
 
 import ImgHome from '../../assets/burger (1) 1.svg'
 
@@ -10,7 +9,7 @@ import {
   HomeImg
 } from './styled'
 
-function Home () {
+export function Home () {
   return (
         <Conteiner>
             <HomeImg src={ImgHome} alt='backgroudHome'/>
@@ -19,5 +18,3 @@ function Home () {
         </Conteiner>
   )
 }
-
-export default Home

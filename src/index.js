@@ -5,14 +5,14 @@ import { ToastContainer } from 'react-toastify'
 import Routes from './routes/routes'
 import GlobalStyle from './styles/globalStyles'
 
-import { UserProvider } from './hooks/UserContext'
+import AppProvider from './hooks'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <>
-    <UserProvider>
+    <AppProvider>
       <Routes />
-    </UserProvider>
+    </AppProvider>
     <ToastContainer />
     <GlobalStyle />
   </>

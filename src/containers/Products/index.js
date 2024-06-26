@@ -3,7 +3,7 @@ import api from '../../services/api'
 import formatCurrency from '../../utils/formatCurrency'
 
 import ImgProducts from '../../assets/bacgroundProducts.jpeg'
-import CardProducts from '../../components/CardProducts'
+import { CardProducts } from '../../components'
 
 import {
   Conteiner,
@@ -13,10 +13,10 @@ import {
   ProductsConteiner
 } from './styled'
 
-function Products () {
+export function Products () {
   const [activeCategory, setActiveCategory] = useState([0])
   const [Categories, setCategories] = useState([])
-
+  const [filterProducts, setFilterProducts] = useState([])
   const [products, setProducts] = useState([])
 
   useEffect(() => {
@@ -42,6 +42,20 @@ function Products () {
     loadProducts()
   }, [])
 
+  // filtrando produtos de acordo com id da categoria selecionada
+  useEffect(() => {
+  // caso valr da categoria seja 0 estou adicionando valor de todos os produtos dentro do set Estado
+    if (activeCategory === 0) {
+      setFilterProducts(products)
+    } else {
+      const newFilterProducts = products.filter(
+        product => product.category_id === activeCategory
+      )
+
+      setFilterProducts(newFilterProducts)
+    }
+  }, [products, activeCategory])
+
   return (
     <Conteiner>
       <ProductImg src={ImgProducts} alt='backgroud Produtos' />
@@ -60,7 +74,7 @@ function Products () {
       </CategoryMenu>
       <ProductsConteiner>
 
-        { products && products.map(product => (
+        { filterProducts && filterProducts.map(product => (
           <CardProducts key={product.id} product={product} />
         ))}
 
@@ -68,5 +82,3 @@ function Products () {
     </Conteiner>
   )
 }
-
-export default Products

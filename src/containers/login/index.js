@@ -26,9 +26,9 @@ import {
   Error,
   SingnInlink
 } from './styles'
-import Button from '../../components/Button'
+import { Button } from '../../components'
 
-function Login () {
+export function Login () {
   const history = useHistory()
   const { putUserData } = useUser()
 
@@ -97,7 +97,7 @@ function Login () {
 
             <Button
               type='submt'
-              style={{ marginTop: 40, marginBottom: 10 }}>Sing In</Button>
+              style={{ marginTop: 40, marginBottom: 10 }}>logar</Button>
 
           </form>
 
@@ -109,5 +109,3 @@ function Login () {
     </Main>
   )
 }
-
-export default Login

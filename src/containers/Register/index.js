@@ -23,9 +23,9 @@ import {
   Error,
   SingnInlink
 } from './styles'
-import Button from '../../components/Button'
+import { Button } from '../../components'
 
-function Register () {
+export function Register () {
   const schema = Yup.object().shape({
     name: Yup
       .string()
@@ -112,5 +112,3 @@ function Register () {
     </Main>
   )
 }
-
-export default Register

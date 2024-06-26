@@ -12,7 +12,7 @@ import {
   Button
 } from './styled'
 
-function CategoryCarrosel () {
+export function CategoryCarrosel () {
   const [Categories, setCategories] = useState([])
 
   useEffect(() => {
@@ -52,5 +52,3 @@ function CategoryCarrosel () {
         </Conteiner>
   )
 }
-
-export default CategoryCarrosel

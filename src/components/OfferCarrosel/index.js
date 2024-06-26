@@ -13,7 +13,7 @@ import {
   Button
 } from './styled'
 
-function OfferCarrosel () {
+export function OfferCarrosel () {
   const [Offer, setOffer] = useState([])
 
   useEffect(() => {
@@ -61,5 +61,3 @@ function OfferCarrosel () {
         </Conteiner>
   )
 }
-
-export default OfferCarrosel
