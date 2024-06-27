@@ -1,12 +1,13 @@
 import React from 'react'
 import formatCurrency from '../../utils/formatCurrency'
+import lixeira from '../../assets/lixeira.png'
 
-import { Header, Conteiner, Body, EmptyCart } from './style'
+import { Header, Conteiner, Body, EmptyCart, TotalConteiner } from './style'
 
 import { useCart } from '../../hooks/CartContext'
 
 export function CartItems () {
-  const { cartproducts } = useCart()
+  const { cartproducts, increaseProducts, decreaseProducts, deleteProducts } = useCart()
   return (
 
     <Conteiner>
@@ -25,19 +26,25 @@ export function CartItems () {
             <p className='product-name' >{product.name}</p>
             <p>{formatCurrency(product.price)}</p>
             <div className='quantity-conteiner' >
-              <button>-</button>
+              <button onClick={() => decreaseProducts(product.id)} >-</button>
               <p>{product.quantity}</p>
-              <button>+</button>
+              <button onClick={() => increaseProducts(product.id)}>+</button>
             </div>
-            <p>{formatCurrency(product.quantity * product.price)}</p>
+
+            <TotalConteiner key={product.id}>
+              <p>{formatCurrency(product.quantity * product.price)}</p>
+              <button onClick={() => deleteProducts(product.id)} >
+                <img src={lixeira} />
+                </button>
+          </TotalConteiner>
           </Body>
         ))
         : (
-          <EmptyCart>
-            Carinho Vazio
-          </EmptyCart>
+    <EmptyCart>
+      Carinho Vazio
+    </EmptyCart>
           )
-      }
-    </Conteiner>
+}
+    </Conteiner >
   )
 }

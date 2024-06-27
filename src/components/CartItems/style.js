@@ -55,6 +55,23 @@ p{
 }
 `
 
+export const TotalConteiner = styled.div`
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    button{
+        background: transparent ;
+        border: none;
+        cursor: pointer;
+    }
+
+    img{
+        width: 40px;
+    }
+`
+
 export const EmptyCart = styled.div`
     padding: 20px;
     text-align: center;
