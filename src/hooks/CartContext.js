@@ -6,6 +6,12 @@ const CartContext = createContext({})
 export const CartProvider = ({ children }) => {
   const [cartproducts, setCartproducts] = useState([])
 
+  // função padrão para atualizar storege
+  const updateLocalStorage = async (children) => {
+    await localStorage.setItem(
+      'codeburguer:cartInfo', JSON.stringify(children))
+  }
+
   const putProdutInCart = async product => {
     const cartIndex = cartproducts.findIndex(prd => prd.id === product.id)
 
@@ -21,8 +27,7 @@ export const CartProvider = ({ children }) => {
       newCartProducts = ([...cartproducts, product])
       setCartproducts(newCartProducts)
     }
-
-    await localStorage.setItem('codeburguer:cartInfo', JSON.stringify(newCartProducts))
+    updateLocalStorage(newCartProducts)
   }
 
   // função para ser usada geral para deletar produtos
@@ -45,7 +50,7 @@ export const CartProvider = ({ children }) => {
     // caso nao tenha mantem o produto original do map
     // após faz nova atualização do set(array original)
     setCartproducts(newCart)
-    await localStorage.setItem('codeburguer:cartInfo', JSON.stringify(newCart))
+    updateLocalStorage(newCart)
   }
 
   // função Tirar produtos no carrinho
@@ -63,7 +68,7 @@ export const CartProvider = ({ children }) => {
       // caso nao tenha mantem o produto original do map
       // após faz nova atualização do set(array original)
       setCartproducts(newCart)
-      await localStorage.setItem('codeburguer:cartInfo', JSON.stringify(newCart))
+      updateLocalStorage(newCart)
     } else {
       deleteProducts(productId)
     }

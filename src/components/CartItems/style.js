@@ -25,7 +25,7 @@ export const Body = styled.div`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     width: max-content;
-    grid-gap: 10px 15px;
+   
 
 img{
     width: 120px;
@@ -68,7 +68,7 @@ export const TotalConteiner = styled.div`
     }
 
     img{
-        width: 40px;
+        width: 30px;
     }
 `
 
